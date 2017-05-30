@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-{{ user.username }}
+{{ user.first_name }} {{user.last_name }}
+<ul>
+{% for friend in friends %}
+<li>
+{{friend.first_name}} - {{friend.last_name}}
+</li>
+{% endfor %}
+</ul>
+</ul>
 </body>
 </html>

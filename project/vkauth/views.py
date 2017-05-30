@@ -4,4 +4,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def user(request):
-    return render(request, 'complete.html')
+    return render(request, 'complete.html', context={'items': dir(request.user)})
