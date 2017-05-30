@@ -6,5 +6,5 @@ from .views import user
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='login'),
-    url(r'user/', user)
+    url(r'user/(?P<backend>[^/]+)/$', user, name='user')
 ]
