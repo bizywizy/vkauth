@@ -11,5 +11,5 @@ def index_view(request):
         vkapi = vk.API(session)
         friends = vkapi.friends.get(order='random', count=5,
                                     fields=['domain', 'first_name', 'last_name'])
-        context.update(friends)
+        context.update({'friends': friends})
     return render(request, 'index.html', context=context)

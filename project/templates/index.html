@@ -6,17 +6,21 @@
 
 <h1>{{ user.first_name }} {{user.last_name }}</h1>
 
-<ul>
+<ul class="list-group">
 {% for friend in friends %}
-<li>
-<a href="vk.com/{{friend.domain}}">{{friend.first_name}} {{friend.last_name}}</a>
+<li class="list-group-item">
+<a href="http://vk.com/{{friend.domain}}">{{friend.first_name}} {{friend.last_name}}</a>
 </li>
 {% endfor %}
 </ul>
 </ul>
 {% else %}
-<p>
-    <a href="{% url 'social:begin' 'vk-oauth2' %}">Enter VK</a>
-</p>
+<div class="jumbotron">
+  <h1>Войти</h1>
+  <p>Авторизуйтесь с помощью VK для продолжения.</p>
+  <p><a class="btn btn-primary btn-lg"
+        href="{% url 'social:begin' 'vk-oauth2' %}"
+        role="button">Авторизоваться</a></p>
+</div>
 {% endif %}
 {% endblock %}
