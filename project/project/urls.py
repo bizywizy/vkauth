@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('social_django.urls', namespace='social')),
+    url(r'^oauth', include('social_django.urls', namespace='social')),
     url(r'^', include('vkauth.urls'))
 ]
