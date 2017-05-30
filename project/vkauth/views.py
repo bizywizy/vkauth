@@ -1,10 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-from social_django.utils import psa
 
-
-@psa('social:complete')
-def user(request, backend):
-    token = request.GET.get('access_token')
-
-    return render('complete.html', context={'token': token})
+@login_required
+def user(request):
+    return render(request, 'complete.html')
