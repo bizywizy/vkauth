@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p style="margin: 0.4em;">
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>{{ user.first_name }} {{user.last_name }}</h1>
+
+<ul>
+{% for friend in friends %}
+<li>
+<a href="vk.com/{{friend.domain}}">{{friend.first_name}} {{friend.last_name}}</a>
+</li>
+{% endfor %}
+</ul>
+</ul>
+{% else %}
+<p>
     <a href="{% url 'social:begin' 'vk-oauth2' %}">Enter VK</a>
 </p>
-</body>
-</html>
+{% endif %}
+{% endblock %}
