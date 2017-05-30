@@ -24,7 +24,7 @@ SECRET_KEY = 'f0%^pec=o%sb-&u0z(fubefh_i7i-y_%37ttlaj95wx*hygjbw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bizywizy.pythonanywhere.com']
 
 # Application definition
 
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_auth',
+    'social_django',
     'vkauth'
 ]
 
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,10 +116,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.vkontakte.VKontakteOAuth2Backend',
+    'social_core.backends.vk.VKOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
-VK_APP_ID = 6053004
+SOCIAL_AUTH_VK_OAUTH2_KEY = 6053004
 
-VK_API_SECRET = 'wUBJLvVwCzovOnpAQZfj'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'wUBJLvVwCzovOnpAQZfj'
